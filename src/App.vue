@@ -1,32 +1,43 @@
-<template>
+  <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <NavBarComponent />
+      <main>
+        <router-view/>
+        <back-to-top visibleoffset="500"><b-icon icon="arrow-up"></b-icon></back-to-top>
+      </main>
+      <FooterComponent />
   </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+import NavBarComponent from '@/components/NavBarComponent'
+import FooterComponent from '@/components/FooterComponent'
+export default {
+  name: 'DashboardComponent',
+  components: {
+    NavBarComponent,
+    FooterComponent
+  }
 }
+</script>
 
-#nav {
-  padding: 30px;
-}
+<style lang="scss">
+.vue-back-to-top{
+  -webkit-box-shadow: 7px 9px 12px -2px #000000;
+  box-shadow: 7px 9px 12px -2px #000000;
+  background-color: #FFFFFF;
+  border-radius: 4px;
+  width: 50px;
+  height: 50px;
+  svg{
+    font-size: 25px;
+    margin: 15px 14px;
+  }
+  .default{
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+    span{
+      display: none;
+    }
+  }
 }
 </style>
